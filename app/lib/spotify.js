@@ -28,6 +28,16 @@ const getAccessToken = async () => {
     });
   };
 
+  export const topArtists = async () => {
+    const {access_token} = await getAccessToken();
+
+    return fetch("https://api.spotify.com/v1/me/top/artists", {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  }
+
 //   [
 //     {
 //         "title":"fukumean",

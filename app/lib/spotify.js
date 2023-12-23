@@ -38,6 +38,26 @@ const getAccessToken = async () => {
     });
   }
 
+  export const topAlbums = async () => {
+    const {access_token} = await getAccessToken();
+
+    return fetch("https://api.spotify.com/v1/me/top/albums", {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  }
+
+  export const getUser = async () => {
+    const {access_token} = await getAccessToken();
+
+    return fetch(`https://api.spotify.com/v1/users/${process.env.SPOTIFY_USER_NAME}`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  }
+
 //   [
 //     {
 //         "title":"fukumean",

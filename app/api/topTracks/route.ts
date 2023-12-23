@@ -5,9 +5,9 @@ export const GET = async () => {
  const response = await topTracks();
  const { items } = await response.json();
 
- const tracks = items.slice(0, 5).map((track: any) => ({
+ const tracks = items.slice(0, 8).map((track: any) => ({
    title: track.name,
-   artist: track.artists.map((_artist: any) => _artist.name).join(", "),
+   artist: track.artists.map((_artist) => _artist.name).join(", "),
    url: track.external_urls.spotify,
    coverImage: track.album.images[1],
  }));
